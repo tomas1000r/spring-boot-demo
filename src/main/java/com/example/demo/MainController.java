@@ -47,6 +47,6 @@ public class MainController {
 
     @GetMapping
     public ResponseEntity<String> test() {
-        return ResponseEntity.ok("OK");
+        return ResponseEntity.ok("OK ");
     }
 }
