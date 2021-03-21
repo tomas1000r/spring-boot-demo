@@ -38,6 +38,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author <a href="mailto:TJakubco@gohealth.com">Tomas Jakubco</a>
  */
@@ -46,7 +48,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
     @GetMapping
-    public ResponseEntity<String> test() {
-        return ResponseEntity.ok("OK ");
+    public ResponseEntity<String> test(HttpServletRequest request) {
+        return ResponseEntity.ok("IP address: " + request.getRemoteAddr());
     }
 }
