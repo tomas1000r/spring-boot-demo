@@ -24,14 +24,12 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew clean build
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+#    - name: Set up Docker Buildx
+#      uses: docker/setup-buildx-action@v1
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build docker image
-      run: ./gradlew bootBuildImage --imageName=tomas1000r/demo
-    - name: Push to Docker registry
-      run: docker push tomas1000r/demo
+    - name: Build & publish docker image
+      run: ./gradlew bootBuildImage --publishImage
