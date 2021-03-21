@@ -31,11 +31,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push
-      id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: tomas1000r/demo:latest
-    - name: Image digest
-      run: echo ${{ steps.docker_build.outputs.digest }}
+    - name: Build docker image
+      run: ./gradlew bootBuildImage --imageName=tomas1000r/demo
+    - name: Push to Docker registry
+      run: docker push tomas1000r/demo
