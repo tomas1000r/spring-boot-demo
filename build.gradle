@@ -26,6 +26,6 @@ bootBuildImage {
 	docker.publishRegistry {
 		url = 'https://hub.docker.com/'
 		username = System.getenv('DOCKERHUB_USERNAME')
-		token = System.getenv('DOCKERHUB_TOKEN')
+		password = System.getenv('DOCKERHUB_PASSWORD')
 	}
 }
