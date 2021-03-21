@@ -23,4 +23,5 @@ test {
 
 bootBuildImage {
 	imageName = "tomas1000r/${project.name}:${project.version}"
+	docker.publishRegistry.url = 'https://hub.docker.com/'
 }
